@@ -1,0 +1,18 @@
+# Compiled binaries
+*.exe
+*.out
+*.o
+*.obj
+
+# Debug files
+*.pdb
+*.ilk
+
+# Build directories
+build/
+bin/
+
+# IDE / editor junk
+.vscode/
+*.suo
+*.user
