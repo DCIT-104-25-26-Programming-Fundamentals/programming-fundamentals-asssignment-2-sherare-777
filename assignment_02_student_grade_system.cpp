@@ -43,40 +43,41 @@
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
 // =============================================================================
 
-#include <iostream>
-using namespace std;
 
 #include <iostream>
 using namespace std;
 
-bool isPrime(int n) {
-    // Numbers less than 2 are not prime
-    if (n < 2) {
-        return false;
+char getGrade(int score) {
+    if (score < 0 || score > 100) {
+        return '\0';  // invalid score
     }
 
-    // Check for divisors from 2 to n-1
-    for (int i = 2; i < n; i++) {
-        if (n % i == 0) {
-            return false;  // Found a divisor, not prime
-        }
+    if (score >= 80) {
+        return 'A';
+    } else if (score >= 70) {
+        return 'B';
+    } else if (score >= 60) {
+        return 'C';
+    } else if (score >= 50) {
+        return 'D';
+    } else {
+        return 'F';
     }
-
-    return true;  // No divisors found, it is prime
 }
 
 int main() {
-    int number;
+    int score;
 
-    cout << "Enter a number: ";
-    cin >> number;
+    cout << "Enter student score (0-100): ";
+    cin >> score;
 
-    if (isPrime(number)) {
-        cout << number << " is a prime number." << endl;
+    char grade = getGrade(score);
+
+    if (grade == '\0') {
+        cout << "Error: Score must be between 0 and 100." << endl;
     } else {
-        cout << number << " is NOT a prime number." << endl;
+        cout << "Grade: " << grade << endl;
     }
 
     return 0;
 }
-
